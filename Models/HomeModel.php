@@ -70,7 +70,7 @@ class HomeModel extends Query
         // Ejecutar el script con el parámetro
         $output = [];
         $return_var = 0;
-        exec("echo 'Mark2demasiado.' | su -c 'bash $script_path $tienda' einzas", $output, $return_var);
+        exec("echo 'Mark2demasiado.' | su -c 'bash $script_path $nombreViejo $nombreNuevo' einzas", $output, $return_var);
 
         // Verificar si la ejecución fue exitosa
         if ($return_var === 0) {
