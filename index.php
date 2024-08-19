@@ -17,7 +17,7 @@ if ($rute == "registro") {
     $rute = str_replace("activarSSL", "Home/activarSSL", $rute);
 } else if (strpos($rute, "activar") === 0) {
     $rute = str_replace("activar", "Home/activar", $rute);
-} else if (strpos($rute, "cambiarNombre", $rute)) {
+} else if (strpos($rute, "cambiarNombre" === 0)) {
     $rute = str_replace("cambiarNombre", "Home/cambiarNombre", $rute);
 }
 $array = explode('/', $rute);
