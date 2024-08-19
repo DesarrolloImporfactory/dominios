@@ -43,4 +43,10 @@ class Home extends Controller
     {
         return $this->model->activarSSL($dominio);
     }
+
+    public function cambiarNombre($nombre)
+    {
+        $antiguo = $_POST['antiguo'];
+        return $this->model->cambiarNombre($antiguo, $nombre);
+    }
 }
