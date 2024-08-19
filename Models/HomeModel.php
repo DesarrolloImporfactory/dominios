@@ -67,18 +67,22 @@ class HomeModel extends Query
         // Ruta completa al script .sh
         $script_path = '/var/www/actualizar.sh';
 
-        // Ejecutar el script con el parámetro
+        // Escapar los parámetros
+        $nombreViejo = escapeshellarg($nombreViejo);
+        $nombreNuevo = escapeshellarg($nombreNuevo);
+
+        // Ejecutar el script con los parámetros
         $output = [];
         $return_var = 0;
         exec("echo 'Mark2demasiado.' | su -c 'bash $script_path $nombreViejo $nombreNuevo' einzas", $output, $return_var);
 
         // Verificar si la ejecución fue exitosa
         if ($return_var === 0) {
-            // Solo mostrar el JSON final si todo salió bien
-            echo json_encode(["status" => 200, "message" => "Tienda Creada Correctamente"]);
+            // Mostrar el JSON de éxito
+            echo json_encode(["status" => 200, "message" => "Nombre de tienda cambiado correctamente", "output" => $output]);
         } else {
-            // Mostrar un mensaje de error en caso de fallo
-            echo json_encode(["status" => 500, "message" => "Error al ejecutar el script"]);
+            // Mostrar el JSON de error con detalles de la salida
+            echo json_encode(["status" => 500, "message" => "Error al ejecutar el script", "output" => $output]);
         }
     }
 }
