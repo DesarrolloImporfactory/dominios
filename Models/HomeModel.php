@@ -65,7 +65,7 @@ class HomeModel extends Query
     public function cambiarNombre($nombreViejo, $nombreNuevo)
     {
         // Ruta completa al script .sh
-        $script_path = '/var/www/script.sh';
+        $script_path = '/var/www/actualizar.sh';
 
         // Ejecutar el script con el parámetro
         $output = [];
